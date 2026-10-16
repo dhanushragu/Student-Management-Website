@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">S</span><div><strong>StudentHub</strong><small>Management Portal</small></div></div>
+    <nav>
+      <a class="nav-link active" href="#dashboard">▦ <span>Dashboard</span></a>
+      <a class="nav-link" href="#students">♙ <span>Students</span></a>
+      <a class="nav-link" href="#register">＋ <span>Add Student</span></a>
+      <a class="nav-link" href="#about">ⓘ <span>About</span></a>
+    </nav>
+    <div class="sidebar-note"><div class="note-icon">✓</div><strong>Frontend demo</strong><p>Entries are not saved to a database.</p></div>
+    <div class="sidebar-footer">StudentHub © 2026</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div><p class="eyebrow">STUDENT MANAGEMENT</p><h1>Dashboard</h1></div>
+      <div class="profile"><div class="avatar">AD</div><div><strong>Administrator</strong><small>Demo account</small></div></div>
+    </header>
+
+    <section id="dashboard" class="welcome-card">
+      <div><p class="eyebrow light">WELCOME BACK</p><h2>Manage your students with ease.</h2><p>Register student details and review the information entered in this demo.</p><a class="button button-white" href="#register">＋ Register a student</a></div>
+      <div class="welcome-art" aria-hidden="true"><div class="art-circle circle-one"></div><div class="art-circle circle-two"></div><div class="art-card"><span>STUDENT</span><strong>01</strong><div class="art-lines"></div></div></div>
+    </section>
+
+    <section class="stats-grid" aria-label="Overview">
+      <article class="stat-card"><div class="stat-icon purple">♙</div><div><p>Total students shown</p><h3 id="totalStudents">0</h3><small>Current page session only</small></div></article>
+      <article class="stat-card"><div class="stat-icon green">✓</div><div><p>Successful submissions</p><h3 id="successfulSubmissions">0</h3><small>Since this page was opened</small></div></article>
+      <article class="stat-card"><div class="stat-icon orange">▤</div><div><p>Departments</p><h3 id="departmentCount">0</h3><small>Represented in this session</small></div></article>
+    </section>
+
+    <section id="register" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">STUDENT DETAILS</p><h2>Register New Student</h2><p class="muted">Fields marked <span class="required">*</span> are required.</p></div><span class="form-badge">Registration form</span></div>
+      <div id="successMessage" class="success-message" role="status" aria-live="polite" hidden><span class="success-check">✓</span><div><strong>Form submitted successfully!</strong><p>Your form was submitted in this frontend demo. Data will not be saved after you refresh or close the page.</p></div><button type="button" id="dismissMessage" aria-label="Dismiss success message">×</button></div>
+      <form id="studentForm">
+        <div class="form-grid">
+          <div class="field"><label for="studentName">Full name <span class="required">*</span></label><input id="studentName" name="studentName" type="text" placeholder="e.g. Arun Kumar" required minlength="2" /></div>
+          <div class="field"><label for="rollNumber">Roll number <span class="required">*</span></label><input id="rollNumber" name="rollNumber" type="text" placeholder="e.g. CSE2026001" required /></div>
+          <div class="field"><label for="email">Email address <span class="required">*</span></label><input id="email" name="email" type="email" placeholder="student@example.com" required /></div>
+          <div class="field"><label for="phone">Phone number</label><input id="phone" name="phone" type="tel" placeholder="e.g. 9876543210" pattern="[0-9+\-\s()]{7,18}" /></div>
+          <div class="field"><label for="department">Department <span class="required">*</span></label><select id="department" name="department" required><option value="">Select department</option><option>Computer Science</option><option>Information Technology</option><option>Electronics</option><option>Electrical Engineering</option><option>Mechanical Engineering</option><option>Civil Engineering</option><option>Commerce</option><option>Arts & Science</option><option>Other</option></select></div>
+          <div class="field"><label for="year">Year of study <span class="required">*</span></label><select id="year" name="year" required><option value="">Select year</option><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>4th Year</option><option>Final Year</option></select></div>
+          <div class="field"><label for="dob">Date of birth</label><input id="dob" name="dob" type="date" /></div>
+          <div class="field"><label for="gender">Gender</label><select id="gender" name="gender"><option value="">Select option</option><option>Female</option><option>Male</option><option>Prefer not to say</option><option>Other</option></select></div>
+          <div class="field full-width"><label for="address">Address</label><textarea id="address" name="address" rows="3" placeholder="Enter the student's address"></textarea></div>
+        </div>
+        <div class="form-actions"><button class="button button-outline" type="reset">Clear form</button><button class="button button-primary" type="submit">Submit registration <span aria-hidden="true">→</span></button></div>
+      </form>
+    </section>
+
+    <section id="students" class="panel">
+      <div class="section-heading"><div><p class="eyebrow">RECENT ENTRIES</p><h2>Students in this session</h2><p class="muted">Submitted details appear here temporarily in your browser.</p></div><span class="count-pill" id="entryCount">0 entries</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Student</th><th>Roll number</th><th>Department</th><th>Year</th><th>Status</th></tr></thead><tbody id="studentTableBody"><tr class="empty-row"><td colspan="5"><div class="empty-state"><span>♙</span><strong>No student entries yet</strong><p>Submit the registration form to see a demo entry here.</p></div></td></tr></tbody></table></div>
+    </section>
+
+    <section id="about" class="about-note"><strong>Note about this demo</strong><p>This website uses only HTML, CSS, and JavaScript. It does not connect to a backend or database. Student entries are kept in the current page session only and are lost when the page is refreshed or closed.</p></section>
+    <footer class="page-footer">Designed for a simple student management frontend • HTML · CSS · JavaScript</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
